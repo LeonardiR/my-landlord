@@ -1,0 +1,38 @@
+<div class="container mt-4 mb-4">
+  <div class="row justify-content-center mb-2">
+    <div class="col-12">
+      <h2 class="mb-4">Landlords</h2>
+
+      <div *ngIf="landlords && landlords.length > 0;else nolandlords">
+        <div *ngFor="let landlord of landlords; let i = index" class="media mb-1">
+          <a class="media-left waves-light">
+            <img class="rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-13.jpg" alt="Generic placeholder image">
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading">{{landlord.name}} {{landlord.surname}}</h4>
+            <ul class="rating inline-ul">
+              <li><i class="fa fa-star" [ngClass]="{'amber-text':landlord.rate >= 1}"></i></li>
+              <li><i class="fa fa-star" [ngClass]="{'amber-text':landlord.rate >= 2}"></i></li>
+              <li><i class="fa fa-star" [ngClass]="{'amber-text':landlord.rate >= 3}"></i></li>
+              <li><i class="fa fa-star" [ngClass]="{'amber-text':landlord.rate >= 4}"></i></li>
+              <li><i class="fa fa-star" [ngClass]="{'amber-text':landlord.rate === 5}"></i></li>
+            </ul>
+            <ul class="madia-info">
+              <li>{{landlord.email}}</li>
+              <li>{{landlord.address}}</li>
+              <li>{{landlord.postal}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <ng-template #nolandlords>
+        <blockquote class="blockquote bq-primary">
+          <p class="bq-title">SORRY !!</p>
+          <p>There are no current landlords registered at this time, help us build this community and be the first to <a class="blue-text" routerLink="/landlord-register">register one</a></p>
+        </blockquote>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+
