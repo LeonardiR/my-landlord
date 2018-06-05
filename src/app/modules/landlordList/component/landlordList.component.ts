@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Landlord, LandlordService} from '../../../core/landlordService';
 
 
 @Component({
@@ -7,31 +8,16 @@ import { Component } from '@angular/core';
   styleUrls:  ['./landlordList.component.scss']
 })
 
-export class LandlordListComponent {
-  landlords = [
-    {
-      name: 'Regulo',
-      surname: 'Leonardi',
-      email: 'regulo.leonardi@gmail.com',
-      address: 'Carrer valencia 605',
-      postal: '08026',
-      rate: 4
-    },
-    {
-      name: 'Ana',
-      surname: 'Pirela',
-      email: 'ana@gmail.com',
-      address: 'Carrer valencia 605',
-      postal: '08026',
-      rate: 5
-    },
-    {
-      name: 'Eduardo',
-      surname: 'Ferrer',
-      email: 'eduardo@gmail.com',
-      address: 'En puto Madrid',
-      postal: '08026',
-      rate: 2
-    },
-  ];
+export class LandlordListComponent implements OnInit {
+  landlords: Landlord[];
+
+  constructor( private landlordService: LandlordService) {}
+
+  ngOnInit() {
+    this.getLandlords();
+    }
+
+  getLandlords(): void {
+     this.landlordService.getLandlords().subscribe(landlords => this.landlords = landlords);
+  }
 }

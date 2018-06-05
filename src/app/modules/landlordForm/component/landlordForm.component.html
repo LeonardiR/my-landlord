@@ -1,6 +1,6 @@
 <div class="container mt-4 mb-4">
   <div class="row justify-content-center mb-2">
-    <div class="col-6">
+    <div class="col-sm-6">
       <h2 class="mb-4">Register Landlord</h2>
       <form [formGroup]="form">
         <div class="form-group">
@@ -34,12 +34,12 @@
         <div class="form-group">
           <input formControlName="rate" type="number" class="form-control" id="rate" placeholder="Rate">
         </div>
-        <button [disabled]="!form.valid" type="submit" (click)="submitForm()" class="btn btn-primary waves-light">Submit</button>
+        <button [disabled]="!form.valid" type="submit" (click)="submitForm(landLords.length)" class="btn btn-primary waves-light">Submit</button>
       </form>
     </div>
   </div>
-  <div class="row mb-2">
-    <div class="col">
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-6">
       <div [hidden]="form.valid" class="alert alert-danger" role="alert">
         Please fill the form correctly
       </div>
@@ -48,37 +48,28 @@
       </div>
     </div>
   </div>
-  <div class="row mb-2">
-    {{form.value | json}}
+  <div class="row mb-4 justify-content-center">
+    <div class="col-sm-6">
+      {{form.value | json}}
+    </div>
   </div>
-  <div *ngIf="landLords.length !== 0" class="row mb-2">
-    <div class="col">
-      <table class="table">
-        <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Surname</th>
-          <th scope="col">Address</th>
-          <th scope="col">email</th>
-          <th scope="col">Postal</th>
-          <th scope="col">Properties</th>
-          <th scope="col">Rate</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let landlord of landLords; let i = index">
-          <th scope="row">{{i+1}}</th>
-          <td>{{landlord.name}}</td>
-          <td>{{landlord.surname}}</td>
-          <td>{{landlord.address}}</td>
-          <td>{{landlord.email}}</td>
-          <td>{{landlord.postal}}</td>
-          <td *ngFor="let item of landlord.properties; let j = index">{{item.property}}</td>
-          <td>{{landlord.rate}}</td>
-        </tr>
-        </tbody>
-      </table>
+  <div *ngIf="landLords.length !== 0" class="row justify-content-center mb-2">
+    <div class="col-md-6 mb-4" *ngFor="let landlord of landLords; let i = index">
+      <div class="list-group">
+      <a class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-4">{{landlord.name}} {{landlord.surname}}</h5>
+          <p class="mb-4">{{landlord.email}}</p>
+          <small class="text-muted">{{i+1}}</small>
+        </div>
+        <h5 class="mb-2">Address</h5>
+        <p class="mb-4">{{landlord.address}}, {{landlord.postal}}</p>
+        <h5 class="mb-1">Properties ({{landlord.properties.length}})</h5>
+        <ul class="text-muted">
+          <li *ngFor="let item of landlord.properties;">{{item.property}}</li>
+        </ul>
+      </a>
+    </div>
     </div>
   </div>
 </div>

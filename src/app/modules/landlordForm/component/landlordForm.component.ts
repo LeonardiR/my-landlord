@@ -33,10 +33,10 @@ export class LandlordFormComponent implements OnInit {
     });
   }
 
-  submitForm () {
+  submitForm (id: number) {
       if (this.form.valid) {
       this.landLords.push(this.form.value);
-      this.landlordService.postLandlord(this.form.value);
+      this.landlordService.postLandlord(this.form.value, id);
     }
 
 
