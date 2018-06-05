@@ -38,8 +38,6 @@ export class LandlordFormComponent implements OnInit {
       this.landLords.push(this.form.value);
       this.landlordService.postLandlord(this.form.value, id);
     }
-
-
   }
 
   initProperty () {
