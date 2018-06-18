@@ -2,8 +2,7 @@
   <div class="row justify-content-center mb-2">
     <div class="col-12">
       <h2 class="mb-4">Landlords</h2>
-
-      <div *ngIf="landlords && landlords.length > 0;else nolandlords">
+      <div *ngIf="landlords && landlords.length > 0; else nolandlords">
         <div *ngFor="let landlord of landlords; let i = index" class="media mb-1">
           <a class="media-left waves-light">
             <img class="rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-13.jpg" alt="Generic placeholder image">

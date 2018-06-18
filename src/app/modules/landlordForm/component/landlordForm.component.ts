@@ -1,6 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
-import {LandlordService} from '../../../core/landlordService';
+
+import { LandlordFormService } from '../services';
+
 
 
 
@@ -14,7 +16,7 @@ export class LandlordFormComponent implements OnInit {
   form: FormGroup;
   private landLords = [];
 
-  constructor(private fb: FormBuilder, private landlordService: LandlordService) {
+  constructor(private fb: FormBuilder, private landlordFormService: LandlordFormService) {
     this.buildForm();
   }
 
@@ -33,10 +35,10 @@ export class LandlordFormComponent implements OnInit {
     });
   }
 
-  submitForm (id: number) {
+  submitForm () {
       if (this.form.valid) {
       this.landLords.push(this.form.value);
-      this.landlordService.postLandlord(this.form.value, id);
+      this.landlordFormService.postLandlord(this.form.value);
     }
   }
 

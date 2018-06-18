@@ -8,7 +8,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import {LandlordFormComponent} from './component';
 import {environment} from '../../../environments/environment';
-import {LandlordService} from '../../core/landlordService';
+import {LandlordFormService} from './services';
 
 @NgModule({
   imports: [
@@ -26,7 +26,7 @@ import {LandlordService} from '../../core/landlordService';
     LandlordFormComponent
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [LandlordService],
+  providers: [LandlordFormService],
 })
 
 export class LandlordFormModule {}

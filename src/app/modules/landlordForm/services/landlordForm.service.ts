@@ -1,33 +1,26 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
-
-import {Landlord} from './landlord';
-import {Observable} from 'rxjs-compat/Observable';
+import {Landlord} from '../../../core/landlordModel';
 
 @Injectable()
 
-export class LandlordService {
+export class LandlordFormService {
   landlords: AngularFireList<any>;
-  landlordsGet: Observable<any>;
 
   constructor(private firebase: AngularFireDatabase ) {
-    }
-
-  getLandlords () {
-    this.landlordsGet = this.firebase.list('landlords').valueChanges();
-    return this.landlordsGet;
   }
-  postLandlord (landlord: Landlord, id: number) {
+
+  postLandlord (landlord: Landlord) {
     this.landlords = this.firebase.list('landlords');
-    this.landlords.set(`landlord-${id}`, {
+    this.landlords.push({
       name: landlord.name,
       surname: landlord.surname,
       address: landlord.address,
       email: landlord.email,
       postal: landlord.postal,
       properties: landlord.properties,
-      rate: landlord.rate
+      rate: landlord.rate,
     });
   }
 }

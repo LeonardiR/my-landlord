@@ -33,7 +33,7 @@
         <div class="form-group">
           <input formControlName="rate" type="number" class="form-control" id="rate" placeholder="Rate">
         </div>
-        <button [disabled]="!form.valid" type="submit" (click)="submitForm(landLords.length)" class="btn btn-primary waves-light">Submit</button>
+        <button [disabled]="!form.valid" type="submit" (click)="submitForm()" class="btn btn-primary waves-light">Submit</button>
       </form>
     </div>
   </div>
@@ -45,30 +45,6 @@
       <div [hidden]="!form.valid" class="alert alert-success" role="alert">
         Ready!!
       </div>
-    </div>
-  </div>
-  <div class="row mb-4 justify-content-center">
-    <div class="col-sm-6">
-      {{form.value | json}}
-    </div>
-  </div>
-  <div *ngIf="landLords.length !== 0" class="row justify-content-center mb-2">
-    <div class="col-md-6 mb-4" *ngFor="let landlord of landLords; let i = index">
-      <div class="list-group">
-      <a class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-4">{{landlord.name}} {{landlord.surname}}</h5>
-          <p class="mb-4">{{landlord.email}}</p>
-          <small class="text-muted">{{i+1}}</small>
-        </div>
-        <h5 class="mb-2">Address</h5>
-        <p class="mb-4">{{landlord.address}}, {{landlord.postal}}</p>
-        <h5 class="mb-1">Properties ({{landlord.properties.length}})</h5>
-        <ul class="text-muted">
-          <li *ngFor="let item of landlord.properties;">{{item.property}}</li>
-        </ul>
-      </a>
-    </div>
     </div>
   </div>
 </div>

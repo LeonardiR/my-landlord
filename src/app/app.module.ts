@@ -6,6 +6,8 @@ import { HeaderModule } from './shared/header';
 import { LandlordFormModule } from './modules/landlordForm';
 import { LandlordListModule } from './modules/landlordList';
 import { AppRoutingModule } from './core/routing';
+import { HeroModule } from './modules/hero';
+
 
 
 @NgModule({
@@ -16,6 +18,7 @@ import { AppRoutingModule } from './core/routing';
     AppRoutingModule,
     BrowserModule,
     HeaderModule,
+    HeroModule,
     LandlordFormModule,
     LandlordListModule,
   ],
