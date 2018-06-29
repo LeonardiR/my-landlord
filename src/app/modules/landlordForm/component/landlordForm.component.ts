@@ -30,7 +30,6 @@ export class LandlordFormComponent implements OnInit {
       email: ['', Validators.required],
       address: ['', Validators.required],
       postal: ['', Validators.required],
-      rate: ['', Validators.required],
       properties: this.fb.array([this.initProperty ()])
     });
   }

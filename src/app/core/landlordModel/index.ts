@@ -1,4 +1,4 @@
-export {Landlord} from './landlord';
+export {Landlord} from './landlord.module';
 
 
 

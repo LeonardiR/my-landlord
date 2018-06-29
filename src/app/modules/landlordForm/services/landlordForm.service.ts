@@ -20,7 +20,6 @@ export class LandlordFormService {
       email: landlord.email,
       postal: landlord.postal,
       properties: landlord.properties,
-      rate: landlord.rate,
     });
   }
 }

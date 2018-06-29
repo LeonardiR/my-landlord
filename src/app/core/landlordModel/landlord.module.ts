@@ -7,5 +7,4 @@ export class Landlord {
   properties: [{
       property: string;
     }];
-  rate: number;
 }
