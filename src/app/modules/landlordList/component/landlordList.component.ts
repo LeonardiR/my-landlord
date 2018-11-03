@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-
-import {Landlord} from '../../../core/landlordModel';
 import {LandlordListService} from '../services';
 
 
@@ -11,7 +9,7 @@ import {LandlordListService} from '../services';
 })
 
 export class LandlordListComponent implements OnInit {
-  landlords: Landlord[];
+  landlords = [];
 
   constructor( private landlordListService: LandlordListService) {}
 
